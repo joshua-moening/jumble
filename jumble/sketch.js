@@ -4,14 +4,20 @@ let greeting;
 
 function setup() {
     createCanvas(800, 600);
-    greeting = createElement('h2', 'jumble');
-    greeting.position(400, 5);
+    loadFont('/assets/RubikBurned-Regular.ttf', font => {
+    fill('deeppink');
+    textFont(font);
+    greeting = createElement('h2', 'Jumble');
+    greeting.position(CENTER, 5);
+    greeting.style('color', 'deeppink');
+    greeting.style('font-family', 'RubikBurned')
     wordInput = createInput();
-    wordInput.position(400, 65);
-    button = createButton('submit');
-    button.position(wordInput.x + wordInput.width, 65);
+    wordInput.position(650, 65);
+    button = createButton('Anagram');
+    button.position(815, 65);
     button.mousePressed(greet);
     wordInput.changed(greet);
+    });
 }
 
 function greet() {
